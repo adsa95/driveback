@@ -1,7 +1,8 @@
-#! /app/bin/node
-const search = require('./../index.js');
+const search = require('./index.js');
 search('stockholm', 'göteborg');
 search('göteborg', 'stockholm');
+
+search('vimmerby', 'karlskrona');
 
 setTimeout(function(){
     process.exit(1);
