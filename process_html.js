@@ -6,7 +6,6 @@ const dateRegExp = /^\d{4}-\d{2}-\d{2}$/;
 const process_results = require('./process_results.js');
 
 module.exports = function(html, callback){
-    console.log('Processing!');
     let $ = cheerio.load(html);
     let items = [];
     let item = false;
