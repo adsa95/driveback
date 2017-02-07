@@ -11,11 +11,11 @@ module.exports = function(src, dst){
     require('dotenv').config();
     console.log('Searching ' + src + ' -> ' + dst);
     get_hertz_html(function(html){
-        console.log('Processing HTML');
+        console.log('Processing HTML ' + src + ' -> ' + dst);
         process_html(html, function(items){
-            console.log('Processing result');
+            console.log('Processing result ' + src + ' -> ' + dst);
             process_results(items, src, dst, function(item){
-                console.log('Notifying');
+                console.log('Notifying about ' + item.car + ',' + item.source + ',' + item.destination);
                 notify_slack(item);
             });
         })
