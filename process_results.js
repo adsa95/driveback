@@ -2,6 +2,7 @@
 "use strict"
 
 module.exports = function(items, search_source, search_dest, notify){
+    let matches = [];
     for (let i = 0; i < items.length; i++) {
         let item = items[i];
         let source_lower = item.source.toLowerCase();
@@ -10,6 +11,7 @@ module.exports = function(items, search_source, search_dest, notify){
         let dest_lower = item.destination.toLowerCase();
         if(dest_lower.indexOf(search_dest) == -1) continue;
 
-        notify(item);
+        matches.push(item);
     }
+    return matches;
 }

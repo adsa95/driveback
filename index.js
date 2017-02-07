@@ -14,10 +14,13 @@ module.exports = function(src, dst){
         console.log('Processing HTML ' + src + ' -> ' + dst);
         process_html(html, function(items){
             console.log('Processing result ' + src + ' -> ' + dst);
-            process_results(items, src, dst, function(item){
+            let results = process_results(items, src, dst);
+            console.log('Got results (' + src + ' -> ' + dst + '), length:' + results.length);
+            for (var i = 0; i < results.length; i++) {
+                let item = results[i];
                 console.log('Notifying about ' + item.car + ',' + item.source + ',' + item.destination);
                 notify_slack(item);
-            });
+            }
         })
     })
 };
