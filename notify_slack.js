@@ -32,7 +32,11 @@ module.exports = function(item){
         });
 
         res.on('end', function(){
-            console.log(text);
+            if(text == "ok"){
+                console.log('INFO: Slack message sent successfully!');
+            }else{
+                console.log('WARN: Seems like something whent wrong while sending the slack messge!');
+            }
         });
     });
     request.write(post_data);
