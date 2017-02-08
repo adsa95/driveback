@@ -38,6 +38,7 @@ module.exports = function(html, callback){
                 }
             })
             items.push(item);
+            item = false;
         }
     });
 
