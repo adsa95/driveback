@@ -2,14 +2,15 @@
   "name": "hertz-watcher",
   "version": "1.0.0",
   "description": "Watches for Hertz Freerider cars and notifies you via Slack",
-  "main": "index.js",
+  "main": "Freerider.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Adam Sandström <adsa95@gmail.com>",
+  "author": "Adam Sandström <adsa95@gmail.com> (www.adsa.se)",
   "license": "ISC",
   "dependencies": {
     "cheerio": "^0.22.0",
-    "dotenv": "^4.0.0"
+    "dotenv": "^4.0.0",
+    "request": "^2.79.0"
   }
 }
