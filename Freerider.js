@@ -5,7 +5,6 @@ let cheerio = require('cheerio');
 let dateRegExp = /^\d{4}-\d{2}-\d{2}$/;
 let FreeriderTrip = require('./FreeriderTrip.js');
 let FreeriderRoute = require('./FreeriderRoute.js');
-let SlackSender = require('./SlackSender.js');
 
 class Freerider{
 	static search(routes, sender){
