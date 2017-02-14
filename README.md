@@ -1,6 +1,6 @@
-# freerider-slack-notifier
+# freerider
 ### Introduction
-A library for for fetching and searching available cars on Hertz Freerider
+A library for for fetching and searching available cars on Hertz Freerider. Includes a module to notify about matches with a Slack Hook.
 
 ### What is Hertz Freerider?
 Hertz Freerider is a service that enables you to drive cars that needs to be moved for free. Find out more here: https://www.hertzfreerider.se/
