@@ -1,10 +1,14 @@
 {
-  "name": "hertz-watcher",
+  "name": "freerider",
   "version": "1.0.0",
-  "description": "Watches for Hertz Freerider cars and notifies you via Slack",
+  "description": "Library for fetching data and searching available cars on Hertz Freerider",
   "main": "Freerider.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adsa95/freerider.git"
   },
   "author": "Adam Sandström <adsa95@gmail.com> (www.adsa.se)",
   "license": "ISC",
