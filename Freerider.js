@@ -32,7 +32,7 @@ class Freerider{
 		})
 	}
 
-	setTrups(trips){
+	setTrips(trips){
 		this.trips = trips;
 	}
 
