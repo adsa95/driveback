@@ -32,6 +32,10 @@ class Freerider{
 		})
 	}
 
+	setTrups(trips){
+		this.trips = trips;
+	}
+
 	getTrips(callback){
 		if(this.trips !== undefined){
 			console.log('Freerider: Returning cached trips');
