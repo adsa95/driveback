@@ -1,14 +1,14 @@
 {
-  "name": "freerider",
-  "version": "1.1.4",
-  "description": "Library for fetching data and searching available cars on Hertz Freerider",
+  "name": "driveback",
+  "version": "1.0.0",
+  "description": "Library for fetching data and searching available cars on Driveback",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adsa95/freerider.git"
+    "url": "git+https://github.com/adsa95/driveback.git"
   },
   "author": "Adam Sandström <adsa95@gmail.com> (www.adsa.se)",
   "license": "ISC",

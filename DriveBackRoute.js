@@ -1,6 +1,6 @@
 "use strict"
 
-class FreeriderSearch{
+class DriveBackSearch{
 	constructor(from, to = '*', bothways = false){
 		this.from = from;
 		this.to = to;
@@ -8,4 +8,4 @@ class FreeriderSearch{
 	}
 }
 
-module.exports = FreeriderSearch;
+module.exports = DriveBackSearch;

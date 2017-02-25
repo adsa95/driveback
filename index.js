@@ -1,11 +1,11 @@
 "use strict"
 
-let Freerider = require('./Freerider.js');
-let FreeriderRoute = require('./FreeriderRoute.js');
-let FreeriderTrip = require('./FreeriderTrip.js');
+let DriveBack = require('./DriveBack.js');
+let DriveBackRoute = require('./DriveBackRoute.js');
+let DriveBackTrip = require('./DriveBackTrip.js');
 
 module.exports = {
-	Helper: Freerider,
-	Route: FreeriderRoute,
-	Trip: FreeriderTrip
+	Helper: DriveBack,
+	Route: DriveBackRoute,
+	Trip: DriveBackTrip
 }

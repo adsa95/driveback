@@ -1,7 +1,7 @@
 "use strict"
 
-class FreeriderTrip{
-	constructor(from = "", to = "", startDate, endDate, car){
+class DriveBackTrip{
+	constructor(from = "", to = "", startDate = false, endDate = false, car = 'Okänd bil'){
 		this.to = from;
 		this.to = to;
 		this.startDate = startDate;
@@ -28,8 +28,14 @@ class FreeriderTrip{
 	}
 
 	getMessage(){
-		return this.car + ' tillgänglig ' + this.from + ' -> ' + this.to + ' (' + this.startDate + ' - ' + this.endDate + ')';
+		let message = this.car + ' tillgänglig ' + this.from + ' -> ' + this.to;
+		
+		if(this.startDate !== false && this.endDate !== false){
+			message += ' (' + this.startDate + ' - ' + this.endDate + ')';
+		}
+
+		return message;
 	}
 }
 
-module.exports = FreeriderTrip;
+module.exports = DriveBackTrip;
