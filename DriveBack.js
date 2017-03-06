@@ -2,6 +2,7 @@
 
 let request = require('request');
 let cheerio = require('cheerio');
+let moment = require('moment');
 let dateRegExp = /^\d{4}-\d{2}-\d{2}$/;
 let DriveBackTrip = require('./DriveBackTrip.js');
 let DriveBackRoute = require('./DriveBackRoute.js');
@@ -50,28 +51,36 @@ class DriveBack{
 
 		let _this = this;
 
-		request("http://www.driveback.se/", function(err, res, body){
+		request("http://www.driveback.se/resor.json", function(err, res, body){
 			if(err) throw err;
 
-			let $ = cheerio.load(body);
-		    let trips = [];
+			body = JSON.parse(body);
+			let trips = [];
+			let ids = [];
 
-		    $('.list-group-items .list-group-item:not(.text-center)').each(function(i, elm1){
-		        let tr = $(this);
-				let trip = new DriveBackTrip();
+			for (var i = 0; i < body.length; i++) {
+				let trip = body[i];
 
-				let text = tr.find('.list-group-item-heading').text();
-				let places = text.split('→');
+				let from = trip.from_station.area + ' (' + trip.from_station.location.city + ')';
+				let fromDate = moment(trip.first_pickup).format('D MMM HH:mm');
+				let toDate = moment(trip.last_deliver).format('D MMM HH:mm');
+				let car;
 
-				if(places.length !== 2) return;
+				if(trip.vehicle.car_model !== ""){
+					car = trip.vehicle.car_model + ' (' + trip.vehicle.car_size + ')';
+				}else{
+					car = trip.vehicle.car_size;
+				}
 
-				trip.from = places[0].replace(/(\s){1,}/g, ' ').trim();
-				trip.to = places[1].replace(/(\s){1,}/g, ' ').trim();
-
-				trip.car = tr.find('.list-group-item-text .label-info').text().replace(/(\s){1,}/g, ' ').trim();
-
-				trips.push(trip);
-		    });
+				for (var j = 0; j < trip.to_stations.length; j++) {
+					let idstring = trip.id + '.' + trip.to_stations[j].id;
+					if(ids.indexOf(idstring) == -1){
+						ids.push(idstring);
+						let to = trip.to_stations[j].area + ' (' + trip.to_stations[j].location.city + ')';
+						trips.push(new DriveBackTrip(from, to, fromDate, toDate, car));
+					}
+				}
+			}
 
 		    console.log('DriveBack: Found ' + trips.length + ' trips');
 
