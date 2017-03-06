@@ -19,12 +19,20 @@ class DriveBack{
 
 	search(routes, sender){
 		this.getTrips(function(trips){
-			for (var i = trips.length - 1; i >= 0; i--) {
-				for (var j = routes.length - 1; j >= 0; j--) {
-					if(trips[i].matches(routes[j])){
-						sender.send(trips[i].getMessage());
+			let matches = [];
+			let ids = [];
+
+			for (let i = trips.length - 1; i >= 0; i--) {
+				for (let j = routes.length - 1; j >= 0; j--) {
+					if(trips[i].matches(routes[j]) && ids.indexOf(trips[i].idstring) == -1){
+						ids.push(trips[i].idstring);
+						matches.push(trips[i]);
 					}
 				}
+			}
+
+			for(let i = matches.length - 1; i >= 0; i--){
+				sender.send(matches[i].getMessage());
 			}
 		})
 	}
@@ -77,7 +85,9 @@ class DriveBack{
 					if(ids.indexOf(idstring) == -1){
 						ids.push(idstring);
 						let to = trip.to_stations[j].area + ' (' + trip.to_stations[j].location.city + ')';
-						trips.push(new DriveBackTrip(from, to, fromDate, toDate, car));
+						let dbtrip = new DriveBackTrip(from, to, fromDate, toDate, car);
+						dbtrip.idstring = idstring;
+						trips.push(dbtrip);
 					}
 				}
 			}
