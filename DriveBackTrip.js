@@ -2,7 +2,7 @@
 
 class DriveBackTrip{
 	constructor(from = "", to = "", startDate = false, endDate = false, car = 'Okänd bil'){
-		this.to = from;
+		this.from = from;
 		this.to = to;
 		this.startDate = startDate;
 		this.endDate = endDate;
